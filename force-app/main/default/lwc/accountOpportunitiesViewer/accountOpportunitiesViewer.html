@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Opportunités du Compte" icon-name="standard:opportunity">
+        <div class=slds-max-large-size_xx-large>
+            <lightning-button class="slds-m-bottom_small" label="Rafraîchir" onclick={handleRafraichir} variant="brand"></lightning-button>
+            <template lwc:if={opportunities}>
+                <lightning-datatable data={opportunities}
+                                     columns={columns}
+                                     key-field="Id"
+                                     class="slds-box slds-theme_default">
+                </lightning-datatable>
+            </template>
+            <template lwc:else>
+                <div class={errorStyle} role="contentinfo">
+                    <span class="slds-assistive-text">Erreur</span>
+                    <p class="slds-p-around_medium slds-text-color_error">{error}</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
